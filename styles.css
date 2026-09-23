@@ -1,29 +1,157 @@
 body {
-    font-family: Arial, sans-serif;
-    color: #243047;
-    background-color: #f3f6fb;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    color: #171717;
+    background-color: #f3e8d0;
+    background-image: radial-gradient(#d72f2f 1.5px, transparent 1.5px);
+    background-size: 18px 18px;
     margin: 0;
 }
 
-main{
+main {
     max-width: 720px;
     margin: 40px auto;
     padding: 0 24px;
 }
 
 section {
+    position: relative;
     margin-bottom: 24px;
     padding: 24px;
-    background-color: white;
-    border: 1px solid #d9e2f0;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(36, 48, 71, 0.08);
+    background: #fffdf5;
+    border: 4px solid #171717;
+    border-radius: 3px;
+    box-shadow: 8px 8px 0 #171717;
+    overflow: hidden;
 }
 
-h1,h2{
+section::before {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    width: 42px;
+    height: 42px;
+    border: 4px solid #d72f2f;
+    border-radius: 50%;
+    content: "";
+    opacity: 0.8;
+}
+
+section:first-child {
+    background: #d72f2f;
+    color: #fffdf5;
+    transform: rotate(-1deg);
+}
+
+section:nth-child(3) {
+    transform: rotate(0.7deg);
+}
+
+h1,
+h2,
+h3 {
+    margin-top: 0;
+    color: #173a72;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0 #f4b942;
+}
+
+h1 {
+    max-width: 560px;
+    color: #fffdf5;
+    font-size: clamp(2rem, 7vw, 3.5rem);
+    line-height: 0.95;
+    text-shadow: 3px 3px 0 #171717;
+}
+
+h2 {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #f4b942;
+    border: 3px solid #171717;
+    transform: skew(-6deg);
+}
+
+h3 {
+    color: #d72f2f;
+}
+
+p {
+    font-family: "Trebuchet MS", sans-serif;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+a {
+    color: #d72f2f;
+    font-weight: 900;
+}
+
+a:hover,
+a:focus {
     color: #173a72;
 }
 
-img{
+img {
+    display: block;
+    width: min(100%, 320px);
+    margin: 12px auto 20px;
+    border: 5px solid #171717;
+    box-shadow: 6px 6px 0 #173a72;
+    transform: rotate(1deg);
+}
+
+button {
+    padding: 12px 18px;
+    color: #fffdf5;
+    background: #173a72;
+    border: 3px solid #171717;
+    border-radius: 2px;
+    box-shadow: 4px 4px 0 #171717;
+    cursor: pointer;
+    font: 900 1rem Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+button:hover,
+button:focus-visible {
+    background: #d72f2f;
+    transform: translate(-2px, -2px);
+}
+
+#fun-fact.is-visible {
+    padding: 14px;
+    background: #f4b942;
+    border: 3px dashed #171717;
+    animation: comic-pop 260ms ease-out;
+}
+
+@keyframes comic-pop {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) rotate(-3deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+@media (max-width: 600px) {
+    main {
+        margin: 24px auto;
+        padding: 0 16px;
+    }
+
+    section {
+        padding: 18px;
+        box-shadow: 5px 5px 0 #171717;
+    }
+}
+
+img {
     max-width: 100%;
 }
