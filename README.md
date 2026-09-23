@@ -13,6 +13,8 @@ Prompt Structure:
 3. Ask for clarification
 4. Request a plan before implementing 
 
+username.github.io/personal-portfolio
+
 
 Prompt|What AI did| Any corrections|
 |-----|-----------|----------------|
