@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
     position: relative;
     font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
@@ -31,6 +37,51 @@ body::after {
     background-image: repeating-radial-gradient(circle at 100% 100%, transparent 0 22px, #d72f2f 23px 24px), repeating-conic-gradient(from 180deg at 100% 100%, transparent 0 14deg, #d72f2f 15deg 16deg);
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+}
+
+.site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    gap: clamp(16px, 5vw, 56px);
+    padding: 18px 24px;
+    background: #173a72;
+    border-bottom: 4px solid #171717;
+    box-shadow: 0 5px 0 #d72f2f;
+}
+
+.site-nav a {
+    position: relative;
+    color: #fffdf5;
+    font: 900 1rem Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.site-nav a::after {
+    position: absolute;
+    right: 0;
+    bottom: -7px;
+    left: 0;
+    height: 3px;
+    background: #f4b942;
+    content: "";
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 180ms ease-out;
+}
+
+.site-nav a:hover::after,
+.site-nav a:focus-visible::after {
+    transform: scaleX(1);
+}
+
 main {
     position: relative;
     z-index: 1;
@@ -38,8 +89,11 @@ main {
     max-width: 1100px;
     grid-template-areas:
         "intro about"
+        "what-do what-do"
         "actions actions"
-        "projects fact";
+        "projects fact"
+        "skills contact"
+        "sense sense";
     grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
     gap: 24px;
     margin: 40px auto;
@@ -62,6 +116,9 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background: #d72f2f;
+    color: #fffdf5;
+    transform: rotate(-1deg);
 }
 
 .about-card {
@@ -73,10 +130,266 @@ section {
 
 .projects-card {
     grid-area: projects;
+    transform: rotate(0.7deg);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+}
+
+.project-card {
+    overflow: hidden;
+    background: #202b4c;
+    border: 3px solid #d72f2f;
+    box-shadow: 0 0 0 2px #173a72;
+    transition: transform 180ms ease-out, box-shadow 180ms ease-out;
+}
+
+.project-card:hover,
+.project-card:focus-within {
+    transform: scale(1.025);
+    box-shadow: 0 0 18px rgba(215, 47, 47, 0.85), 0 0 0 2px #f4b942;
+}
+
+.project-image {
+    display: grid;
+    min-height: 150px;
+    place-items: center;
+    color: #f4b942;
+    background-color: #173a72;
+    background-image: repeating-radial-gradient(circle at 50% 50%, transparent 0 24px, rgba(255, 253, 245, 0.2) 25px 26px), repeating-conic-gradient(from 0deg, transparent 0 14deg, rgba(255, 253, 245, 0.18) 15deg 16deg);
+    border-bottom: 3px solid #d72f2f;
+    font: 900 1.25rem Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0 #171717;
+}
+
+.project-card-content {
+    padding: 18px;
+}
+
+.project-card h3 {
+    margin-bottom: 10px;
+    color: #f4b942;
+    font-size: 1.3rem;
+    text-shadow: 2px 2px 0 #171717;
+}
+
+.project-card p {
+    margin-top: 0;
+    color: #fffdf5;
+    font-size: 0.95rem;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0;
+}
+
+.tech-tags span {
+    padding: 4px 8px;
+    color: #171717;
+    background: #f4b942;
+    border: 2px solid #171717;
+    font: 900 0.75rem "Trebuchet MS", sans-serif;
+    text-transform: uppercase;
+}
+
+.project-link {
+    color: #fffdf5;
+    font-family: "Trebuchet MS", sans-serif;
+    text-transform: uppercase;
 }
 
 .fact-card {
     grid-area: fact;
+}
+
+.skills-card {
+    grid-area: skills;
+    background: #f4b942;
+}
+
+.skill-groups {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.skill-group {
+    padding: 14px;
+    background: #202b4c;
+    border: 2px solid #d72f2f;
+    box-shadow: 3px 3px 0 #173a72;
+}
+
+.skill-group h3 {
+    margin-bottom: 12px;
+    color: #f4b942;
+    font-size: 0.95rem;
+    text-shadow: 1px 1px 0 #171717;
+}
+
+.skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.skill-pills span {
+    padding: 5px 8px;
+    color: #171717;
+    background: #fffdf5;
+    border: 2px solid #171717;
+    border-radius: 999px;
+    font: 900 0.72rem "Trebuchet MS", sans-serif;
+    text-transform: uppercase;
+}
+
+.skill-pills span:hover {
+    color: #fffdf5;
+    background: #d72f2f;
+    border-color: #f4b942;
+}
+
+.contact-card {
+    grid-area: contact;
+    background: #173a72;
+    color: #fffdf5;
+    box-shadow: 8px 8px 0 #d72f2f;
+}
+
+.contact-card h2 {
+    color: #171717;
+}
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.contact-icon-button {
+    position: relative;
+    display: grid;
+    width: 54px;
+    height: 54px;
+    place-items: center;
+    color: #fffdf5;
+    background: #d72f2f;
+    border: 3px solid #171717;
+    box-shadow: 4px 4px 0 #171717;
+    transition: color 180ms ease-out, background 180ms ease-out, transform 180ms ease-out;
+}
+
+.contact-icon-button::before {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    width: 34px;
+    height: 2px;
+    background: #f4b942;
+    content: "";
+    opacity: 0;
+    transform: rotate(-32deg) scaleX(0);
+    transform-origin: left;
+    transition: opacity 120ms ease-out, transform 180ms ease-out;
+}
+
+.contact-icon-button:hover,
+.contact-icon-button:focus-visible {
+    color: #171717;
+    background: #f4b942;
+    transform: translateY(-4px) rotate(-2deg);
+}
+
+.contact-icon-button:hover::before,
+.contact-icon-button:focus-visible::before {
+    opacity: 1;
+    transform: rotate(-32deg) scaleX(1);
+}
+
+.contact-icon-button svg {
+    width: 27px;
+    height: 27px;
+    fill: currentColor;
+}
+
+.sense-card {
+    grid-area: sense;
+    background: #111827;
+    border-color: #d72f2f;
+    box-shadow: 8px 8px 0 #173a72;
+}
+
+.sense-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sense-heading h2 {
+    margin-bottom: 16px;
+}
+
+.sense-light {
+    width: 12px;
+    height: 12px;
+    margin-right: 8px;
+    background: #d72f2f;
+    border: 2px solid #f4b942;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #d72f2f;
+    animation: sense-pulse 1.2s ease-in-out infinite;
+}
+
+.sense-display {
+    position: relative;
+    min-height: 54px;
+    padding: 16px;
+    overflow: hidden;
+    color: #f4b942;
+    background: #090d16;
+    border: 2px solid #173a72;
+    font: 900 1rem "Courier New", monospace;
+    line-height: 1.6;
+}
+
+.sense-display::after {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(0deg, transparent 0 5px, rgba(255, 253, 245, 0.04) 6px 7px);
+    content: "";
+    pointer-events: none;
+}
+
+.terminal-prompt {
+    margin-right: 10px;
+    color: #d72f2f;
+}
+
+#sense-output {
+    color: #fffdf5;
+}
+
+#sense-button {
+    margin-top: 16px;
+}
+
+@keyframes sense-pulse {
+    0%,
+    100% {
+        opacity: 0.55;
+    }
+
+    50% {
+        opacity: 1;
+    }
 }
 
 .about-card::before {
@@ -97,6 +410,73 @@ section {
 .about-card img {
     border-color: #f4b942;
     box-shadow: 6px 6px 0 #d72f2f;
+}
+
+.what-i-do {
+    grid-area: what-do;
+    background: #171717;
+    border-color: #173a72;
+}
+
+.what-i-do h2 {
+    color: #171717;
+}
+
+.what-do-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.hud-card {
+    position: relative;
+    padding: 2px;
+    background: linear-gradient(135deg, #d72f2f, #f4b942 48%, #173a72);
+    clip-path: polygon(0 10px, 10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+    transition: transform 180ms ease-out, filter 180ms ease-out;
+}
+
+.hud-card::before {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 8px;
+    height: 8px;
+    background: #d72f2f;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #d72f2f;
+    content: "";
+}
+
+.hud-card h3,
+.hud-card p {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding-right: 18px;
+    background: #202b4c;
+}
+
+.hud-card h3 {
+    padding: 18px 18px 8px;
+    color: #f4b942;
+    font-size: 1.15rem;
+    text-shadow: 2px 2px 0 #171717;
+}
+
+.hud-card p {
+    height: calc(100% - 52px);
+    padding: 0 18px 18px;
+    color: #fffdf5;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.hud-card:hover,
+.hud-card:focus-within {
+    filter: drop-shadow(0 0 9px rgba(215, 47, 47, 0.7));
+    transform: translateY(-5px);
 }
 
 .action-bar {
@@ -123,20 +503,11 @@ section::before {
     opacity: 0.8;
 }
 
-.intro-card {
-    background: #d72f2f;
-    color: #fffdf5;
-    transform: rotate(-1deg);
-}
-
-.projects-card {
-    transform: rotate(0.7deg);
-}
-
 h1,
 h2,
 h3 {
     margin-top: 0;
+    margin-bottom: 16px;
     color: #173a72;
     font-weight: 900;
     letter-spacing: 1px;
@@ -152,6 +523,15 @@ h1 {
     text-shadow: 3px 3px 0 #171717;
 }
 
+.hero-subtitle {
+    margin: 0;
+    color: #f4b942;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
 h2 {
     display: inline-block;
     padding: 4px 10px;
@@ -165,6 +545,7 @@ h3 {
 }
 
 p {
+    margin: 0 0 16px;
     font-family: "Trebuchet MS", sans-serif;
     font-weight: 700;
     line-height: 1.5;
@@ -173,6 +554,7 @@ p {
 a {
     color: #d72f2f;
     font-weight: 900;
+    text-decoration: none;
 }
 
 a:hover,
@@ -221,6 +603,7 @@ img {
 }
 
 button {
+    appearance: none;
     padding: 12px 18px;
     color: #fffdf5;
     background: #173a72;
@@ -258,7 +641,40 @@ button:focus-visible {
     }
 }
 
+@media (max-width: 900px) {
+    main {
+        grid-template-areas:
+            "intro"
+            "about"
+            "what-do"
+            "actions"
+            "projects"
+            "fact"
+            "skills"
+            "contact"
+            "sense";
+        grid-template-columns: 1fr;
+    }
+
+    .what-do-grid,
+    .skill-groups {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
 @media (max-width: 600px) {
+    .site-nav {
+        gap: 16px;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding: 16px;
+    }
+
+    .site-nav a {
+        flex: 0 0 auto;
+        font-size: 0.9rem;
+    }
+
     main {
         display: block;
         margin: 24px auto;
