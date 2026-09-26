@@ -931,6 +931,10 @@ button:focus-visible {
 }
 
 @media (max-width: 600px) {
+    .about-gallery-image {
+        object-fit: contain;
+    }
+
     .site-nav {
         gap: 16px;
         justify-content: flex-start;
