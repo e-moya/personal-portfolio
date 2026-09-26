@@ -7,6 +7,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="page-loader" id="page-loader" aria-hidden="true">
+        <span class="loader-web"></span>
+        <svg class="loader-spider" viewBox="0 0 72 72" aria-hidden="true">
+            <g fill="none" stroke="#d72f2f" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
+                <path d="M29 29 12 15 5 20M26 34 8 31 4 38M27 40 10 48 8 56M30 46 20 61 21 67M43 29 60 15 67 20M46 34 64 31 68 38M45 40 62 48 64 56M42 46 52 61 51 67" />
+            </g>
+            <circle cx="36" cy="27" r="8" fill="#d72f2f" />
+            <ellipse cx="36" cy="43" rx="12" ry="15" fill="#d72f2f" />
+        </svg>
+    </div>
+
     <nav class="site-nav" aria-label="Main navigation">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
@@ -16,15 +27,24 @@
 
     <main>
         <section class="intro-card">
-            <h1>Jesus Eduardo</h1>
-            <p class="hero-subtitle">CS Student @ UTRGV</p>
+            <h1>Jesus Eduardo Moya</h1>
+            <p class="hero-subtitle">CS Student @ UTRGV | Aspiring Software Engineer</p>
             <p>Building my first web experiences with code and creativity.</p>
         </section>
 
         <section class="about-card" id="about">
             <h2>About me</h2>
-            <img src="https://images.unsplash.com/photo-1635805737707-575885ab0820?auto=format&fit=crop&w=800&q=85" alt="Spider-Man figure">
-            <p>I enjoy playing video games</p>
+            <div class="about-gallery">
+                <button class="gallery-image-button" id="gallery-image-button" type="button" aria-label="Show next photo">
+                    <img class="about-gallery-image" src="New%20folder/MyImage1.JPG" alt="Personal photo 1">
+                </button>
+                <div class="gallery-controls" aria-label="Photo controls">
+                    <button class="gallery-control" id="gallery-previous" type="button" aria-label="Show previous photo">Previous</button>
+                    <span class="gallery-counter" id="gallery-counter" aria-live="polite">1 / 6</span>
+                    <button class="gallery-control" id="gallery-next" type="button" aria-label="Show next photo">Next</button>
+                </div>
+            </div>
+            <p>I enjoy playing video games and learning about Computer Science. I'm currently a sophomore at the University of Texas at Rio Grande Valley.</p>
         </section>
 
         <section class="what-i-do">
@@ -52,7 +72,7 @@
         <nav class="action-bar" aria-label="Portfolio links">
             <a class="button" href="https://github.com/e-moya/personal-portfolio" target="_blank" rel="noopener noreferrer">View on GitHub</a>
             <a class="button button-secondary" href="mailto:eduardo_moya7@outlook.com">Contact Me</a>
-            <a class="button button-secondary" href="https://www.linkedin.com/public-profile/settings/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact_info%3BRMvDL6hQSaKkqofop0gg%2FA%3D%3D" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="button button-secondary" href="https://www.linkedin.com/in/jesus-moya-86a067438/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </nav>
 
         <section class="projects-card" id="projects">
@@ -79,7 +99,7 @@
         <section class="fact-card">
             <h2>Fun Fact</h2>
             <button id="fact-button" type="button"> Show a Fun Fact </button>
-            <p id="fun-fact" hidden> I don't like lasagna </p>
+            <p id="fun-fact" hidden></p>
         </section>
 
         <section class="skills-card" id="skills">
@@ -123,7 +143,7 @@
                 <a class="contact-icon-button" href="https://github.com/e-moya/personal-portfolio" target="_blank" rel="noopener noreferrer" aria-label="View Eduardo's GitHub" title="View GitHub">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a9.5 9.5 0 0 0-3 18.52c.48.09.66-.21.66-.47v-1.7c-2.7.59-3.27-1.15-3.27-1.15-.44-1.12-1.08-1.42-1.08-1.42-.88-.6.07-.59.07-.59.97.07 1.48 1 1.48 1 .86 1.47 2.25 1.05 2.8.8.09-.62.34-1.05.61-1.29-2.15-.24-4.41-1.08-4.41-4.8 0-1.06.38-1.92 1-2.6-.1-.24-.43-1.23.1-2.56 0 0 .82-.26 2.67 1a9.25 9.25 0 0 1 4.86 0c1.85-1.26 2.67-1 2.67-1 .53 1.33.2 2.32.1 2.56.62.68 1 1.54 1 2.6 0 3.73-2.27 4.56-4.43 4.8.35.3.65.88.65 1.78v2.64c0 .26.18.57.67.47A9.5 9.5 0 0 0 12 2.5Z" /></svg>
                 </a>
-                <a class="contact-icon-button" href="https://www.linkedin.com/public-profile/settings/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact_info%3BRMvDL6hQSaKkqofop0gg%2FA%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="View Eduardo's LinkedIn" title="View LinkedIn">
+                <a class="contact-icon-button" href="https://www.linkedin.com/in/jesus-moya-86a067438/" target="_blank" rel="noopener noreferrer" aria-label="View Eduardo's LinkedIn" title="View LinkedIn">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 8.4H2.1V21h3.1V8.4ZM3.65 3A1.85 1.85 0 1 0 3.65 6.7 1.85 1.85 0 0 0 3.65 3ZM21.9 13.8c0-3.8-2.03-5.57-4.74-5.57-2.18 0-3.15 1.2-3.69 2.04V8.4h-3.1V21h3.1v-6.24c0-1.64.31-3.23 2.34-3.23 2 0 2.03 1.88 2.03 3.34V21h3.1l-.04-7.2Z" /></svg>
                 </a>
             </div>

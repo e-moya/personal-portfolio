@@ -1,104 +1,46 @@
-# personal-portfolio
-My personal website
+# Personal Portfolio
 
-index.html- This file is inserting the basic things such as text, images, and text thickness.
+My personal website, built with plain HTML, CSS, and JavaScript.
 
-styles.css- This file changes text color and formats.
+[View the live site](https://e-moya.github.io/personal-portfolio)
 
-script.js- This file make things available to do such as buttons actually doing something.
+## Project Files
 
-Prompt Structure:
-1. Describe the change and its purpose
-2. Identify the files to changeand boudnaries
-3. Ask for clarification
-4. Request a plan before implementing 
+- `index.html` contains the page structure and content.
+- `styles.css` controls the Spider-Man-inspired theme, layout, and responsive styling.
+- `script.js` powers the fun-fact button, Spidey-Sense display, page loader, and photo gallery.
 
-e-moya.github.io/personal-portfolio
+## Prompting Workflow
 
+For future changes, I try to:
 
-Prompt|What AI did| Any corrections|
-|-----|-----------|----------------|
-|I want to change the structure of my page. I want every header to have its own card section so that there is seperation between each section. The files you should modify are styles.css and Index.html. Keep content the same and do not touch script.js. Ask me any questions needed to understand the request if any. Explain your proposed changes and which files they change before modifying anything.|Added separate card sections for the intro, About, Projects, and Fun Fact areas in index.html. Kept the project subsection inside the Projects card. Added card spacing, borders, rounded corners, and shadows in styles.css. Left script.js unchanged.| 
-|Give the site a spiderman site by changing the styles.css and possibly the script.js. The changes should include image pulls and should also give the site a comic book feel. Would script.js and styles.css be changed? Ask me any questions needed to understand the request if any. Explain the proposed changes and which files they affect. before modifying anything.|Implemented the Spider-Man comic-book redesign.
+1. Describe the requested change and its purpose.
+2. Identify the files that may change and any boundaries.
+3. Clarify open questions before implementation.
+4. Review the proposed plan before changes are made.
 
-styles.css: added red, blue, and yellow comic colors, halftone background, bold panel borders, shadows, comic typography, responsive styling, and reveal animation.
-index.html: replaced the Pikachu image with a remote Spider-Man image.
-script.js: fixed the existing event-listener typo and added the comic-style fun-fact animation.|
+## Request and Change Log
 
-|Change the layout of the page from a vertical look to a horizontal look. I believe only styles.css change is needed but if any other changes are needed let me know before implementing. Also try adding more buttons, perhaps index.html, let me know any recommendations for buttons on this portfolio website. As well as change the wording on the only project I have listed on there which is my porfolio website. Ask me any questions that would help before implementing anything. Explain your proposed changes and what they affect before modifying anything|Implemented the horizontal portfolio layout. styles.css: intro card positioned on the right, remaining cards arranged on the left, responsive mobile stacking, and subtle corner webbing.
-index.html: added GitHub, Contact Me, and LinkedIn buttons; updated the project title and description.
-script.js: unchanged.| Added email address link, linkedin link, and asked for the intro card to be to the right.|
-
-|Place the intro card to the top left and the about me section to the right instead. Give the about me section a different look that aligns with the theme well. Place the buttons instead horizontally on the top and cahnge the index.html and style.css if needed. Ask me any questions needed to implement this task before changing anything. Tell me any recommendations if any and discuss changes you plan before modifying anything| Implemented the approved layout changes. index.html: intro and About Me cards now occupy the top row, with the three portfolio links moved into one horizontal action bar.
-styles.css: intro is positioned left, About Me right, and the About card now has a distinct blue comic-panel style with subtle webbing.
-Projects and Fun Fact remain below the top layout.
-script.js was not changed.|
-
-|My site is in index.html (plain HTML/CSS/JS, no framework). Add a sticky top nav bar
-with links to #about, #projects, #skills, #contact, using smooth scroll. Redesign the
-hero section: my name, "CS Student @ UTRGV" as a subtitle, and a short one-line intro.
-Theme: Spider-Man — deep red/blue color palette, a web-pattern background accent (SVG
-or CSS, no external image dependency), and a "web-slinging" hover effect on nav links
-(underline that shoots in like a web-line). Keep it in the same index.html/style.css
-files I already have. Discuss any changes with me before implementing.|Implemented the approved redesign.
-
-index.html: added sticky nav links for About, Projects, Skills, and Contact; updated the hero text; added Skills and Contact sections.
-styles.css: added smooth scrolling, Spider-Man nav styling, CSS-only web accents, and the web-slinging underline hover effect.
-script.js: unchanged.|
-
-|Add a grid section after the hero called "What I Do" with 3-4 cards (e.g. Problem Solving, C++, Python, Javascript, etc.) title, one sentence
-each. Style cards with a subtle red/blue gradient border and a small lift/glow on
-hover, like a HUD panel. Match the Spider-Man theme, not a generic Bootstrap card. Discuss changes with me before implementing anything.|Added the new “What I Do” section after the hero area.
-
-Added four cards: Problem Solving, C++, Python, and JavaScript.
-Styled them as Spider-Man-inspired HUD panels with red/blue gradient borders.
-Added angled panel edges, status-light accents, hover lift, and glow effects.
-Added responsive layouts for desktop, tablet, and mobile.
-Preserved the existing Skills section and left script.js unchanged|
-
-|Rebuild the Projects section as a responsive card grid (auto-fit, minmax) instead of
-a single paragraph. Each card: project image/placeholder, title, 1-2 sentence
-description, tech tags as small pills, and GitHub link. Add a hover effect — slight
-scale-up and a red glow shadow. Pull the projects from [list them / point to repo]. Discuss changes planned before implementing anything.|Rebuilt the Projects section with one expandable project card for now.
-
-Added an auto-fit responsive grid using minmax.
-Added a comic-style project placeholder panel.
-Added title, description, HTML/CSS/JavaScript tech pills, and GitHub link.
-Added slight scale-up and red glow hover/focus effects.
-Future project cards can be added inside the same grid without changing the layout.
-script.js remains unchanged.|
-
-|Add a Skills section styled as tag/pill groups grouped under headings like
-"Languages", "Tools", "Currently Learning", similar layout to a typical tech-skills
-grid but styled in the red/blue Spider-Man palette instead of default Bootstrap colors. Ask me anything that would help and discuss changes with me before implementing.|Updated the Skills section with:
-
-Languages: HTML, CSS, JavaScript, C++, Python
-Tools: Git, GitHub, VS Code
-Currently Learning: Python, JavaScript
-Added Spider-Man-themed HUD panels, responsive grouping, red/blue styling, and pill-shaped skill tags with hover states. script.js remains unchanged, and validation passed.|
-
-|Add a small "Spidey-Sense" interactive element near the bottom — e.g. a mock terminal
-or HUD readout styled like a Spider-Man tech display (think Peter's suit HUD) that
-prints a short animated line like "web fluid: OK / status: web-slinging" when the
-page loads or on click. Pure HTML/CSS/JS, no libraries. Discuss changes with me befoer implementing anything|Added the Spidey-Sense HUD near the bottom of the page.
-
-Added a mock suit-terminal display with scan-line styling and status light.
-Added animated output: web fluid: OK / status: web-slinging.
-Scan runs automatically on page load.
-Added a Run Scan button to replay the animation.
-Preserved the existing Fun Fact interaction.
-Updated index.html, styles.css, and script.js. JavaScript syntax|
-
-|Redesign the contact section as a card with my email, GitHub, and LinkedIn as icon
-buttons, styled consistently with the rest of the site's red/blue theme. Add a subtle
-web-shoot animation on button hover. Discuss changes with me before implementing anything.|Redesigned the Contact section.
-
-Added accessible icon buttons for Email, GitHub, and LinkedIn.
-Used inline SVG icons with no external dependencies.
-Styled the card with the existing red/blue HUD theme.
-Added a subtle web-shoot line and lift effect on hover/focus.
-Kept script.js unchanged.|
-
-|Review index.html and style.css as a whole. Make sure spacing, font choices, and
-color usage are consistent across all sections, mobile-responsive, and there's no
-leftover default Bootstrap/browser styling clashing with the theme. Discuss with me before changing things.| 
+| My request | What changed | Follow-up |
+| --- | --- | --- |
+| Separate page sections into cards while preserving content. | Added card sections and spacing, borders, and shadows. | Kept the project heading inside its Projects card. |
+| Give the site a Spider-Man comic-book theme. | Added the red, blue, and yellow palette, halftone/web accents, comic panels, and a themed image. | Fixed the Fun Fact event-listener typo and added its reveal animation. |
+| Make the page more horizontal and add useful portfolio links. | Added GitHub, Contact, and LinkedIn links and updated the project description. | Repositioned the intro to the upper left and About to its right after clarification. |
+| Add a sticky nav and redesign the hero. | Added smooth-scrolling About, Projects, Skills, and Contact links, revised hero text, and CSS web-line hover effects. | Added the Skills and Contact sections. |
+| Add a “What I Do” grid. | Added Problem Solving, C++, Python, and JavaScript HUD cards with responsive layout and hover glow. | Confirmed the listed technologies. |
+| Rebuild Projects as a responsive card grid. | Added an auto-fit project card with a placeholder image, description, technology tags, GitHub link, and red hover glow. | Started with the portfolio project; more can be added later. |
+| Group Skills into themed tag collections. | Added Languages, Tools, and Currently Learning groups with red/blue HUD panels and pill tags. | Languages: HTML, CSS, JavaScript, C++, Python. Tools: Git, GitHub, VS Code. Learning: Python, JavaScript. |
+| Add an interactive Spidey-Sense display. | Added a suit-HUD terminal with animated status text and a replay button. | Runs on page load and can be replayed with Run Scan. |
+| Redesign Contact with icon buttons and web-shoot hover effects. | Added accessible email, GitHub, and LinkedIn SVG buttons in a themed card. | Later replaced the LinkedIn settings URL with the public profile URL. |
+| Review consistency, browser defaults, and responsiveness. | Corrected the doctype and language, normalized box sizing and spacing, consolidated styles, and added a tablet layout breakpoint. | No Bootstrap styling was present. |
+| Remove excess desktop whitespace by adjusting the grid. | Changed desktop grid rows to give Intro, Projects, and Fun Fact separate rows; paired About with What I Do, and Skills with Contact. | Kept the mobile layout unchanged. |
+| Add a first-load spider animation. | Added an inline SVG spider that drops on a CSS web line, then fades away. | Respects reduced-motion preferences and does not block page interaction. |
+| Randomize Spidey-Sense scan readings. | Added six playful status messages, typed with the existing animation and without immediate repeats. | Scan still runs on load and from the button. |
+| Add a subtle pattern to wide desktop margins. | Extended CSS web accents into low-opacity, full-height side patterns at wide viewport sizes. | Tablet and mobile styling stayed unchanged. |
+| Replace the About image with personal and Spider-Man photos. | Added all six local images in alternating order in a single-photo carousel with controls and a counter. | Later changed it to advance automatically every five seconds; manual navigation resets the timer. |
+| Update the profile and About Me wording. | Changed the name to Jesus Eduardo Moya, expanded the subtitle, and added the Computer Science/student description. | Corrected “sophmore” to “sophomore”; retained the short hero intro. |
+| Center the hero and section headings. | Centered the hero text, About/What I Do/Projects/Fun Fact/Spidey-Sense titles, and the Fun Fact button. | Skills and Contact headings were left unchanged. |
+| Add randomized Fun Facts. | Added four user-provided facts; the button chooses one at random and avoids an immediate repeat. | Clicking again still hides the fact. |
+| Add webbing to the cards, but not the name card. | Replaced circular section accents with subtle CSS corner-web patterns and added smaller accents to nested panels. | Expanded the Fun Fact card’s web pattern across its full surface. |
+| Move the loader spider toward the screen center. | Extended the web line and used viewport-relative positioning so the spider drops to the vertical midpoint. | Scales to phone and desktop viewport heights. |
+| Update LinkedIn links. | Changed both LinkedIn buttons to the public profile URL. | — |

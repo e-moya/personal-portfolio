@@ -37,6 +37,91 @@ body::after {
     background-image: repeating-radial-gradient(circle at 100% 100%, transparent 0 22px, #d72f2f 23px 24px), repeating-conic-gradient(from 180deg at 100% 100%, transparent 0 14deg, #d72f2f 15deg 16deg);
 }
 
+@media (min-width: 1200px) {
+    body::before,
+    body::after {
+        top: 0;
+        bottom: 0;
+        width: calc((100vw - 1100px) / 2);
+        height: auto;
+        opacity: 0.1;
+        background-size: 180px 180px;
+    }
+
+    body::before {
+        left: 0;
+        background-position: left top;
+    }
+
+    body::after {
+        right: 0;
+        background-position: right bottom;
+    }
+}
+
+.page-loader {
+    position: fixed;
+    z-index: 100;
+    inset: 0;
+    overflow: hidden;
+    background: #173a72;
+    opacity: 1;
+    pointer-events: none;
+    animation: loader-fade 1.4s ease-out forwards;
+}
+
+.loader-web {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 50vh;
+    background: #fffdf5;
+    box-shadow: 0 0 8px rgba(255, 253, 245, 0.6);
+    transform: scaleY(0);
+    transform-origin: top;
+    animation: web-line-extend 760ms ease-out forwards;
+}
+
+.loader-spider {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 72px;
+    height: 72px;
+    transform: translate(-50%, -110%);
+    animation: spider-drop 760ms cubic-bezier(0.2, 0.75, 0.3, 1) forwards;
+}
+
+@keyframes web-line-extend {
+    to {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes spider-drop {
+    to {
+        transform: translate(-50%, calc(50vh - 36px));
+    }
+}
+
+@keyframes loader-fade {
+    0%,
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-loader {
+        display: none;
+    }
+}
+
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 88px;
@@ -86,12 +171,14 @@ main {
     position: relative;
     z-index: 1;
     display: grid;
+    align-items: start;
     max-width: 1100px;
     grid-template-areas:
-        "intro about"
-        "what-do what-do"
+        "intro intro"
+        "about what-do"
         "actions actions"
-        "projects fact"
+        "projects projects"
+        "fact fact"
         "skills contact"
         "sense sense";
     grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
@@ -112,12 +199,13 @@ section {
 
 .intro-card {
     grid-area: intro;
-    align-self: stretch;
     display: flex;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
     background: #d72f2f;
     color: #fffdf5;
+    text-align: center;
     transform: rotate(-1deg);
 }
 
@@ -140,6 +228,7 @@ section {
 }
 
 .project-card {
+    position: relative;
     overflow: hidden;
     background: #202b4c;
     border: 3px solid #d72f2f;
@@ -167,7 +256,14 @@ section {
 }
 
 .project-card-content {
+    position: relative;
+    z-index: 1;
     padding: 18px;
+}
+
+.project-image {
+    position: relative;
+    z-index: 1;
 }
 
 .project-card h3 {
@@ -209,6 +305,12 @@ section {
     grid-area: fact;
 }
 
+.fact-card > button {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 .skills-card {
     grid-area: skills;
     background: #f4b942;
@@ -221,10 +323,17 @@ section {
 }
 
 .skill-group {
+    position: relative;
     padding: 14px;
     background: #202b4c;
     border: 2px solid #d72f2f;
     box-shadow: 3px 3px 0 #173a72;
+}
+
+.skill-group h3,
+.skill-pills {
+    position: relative;
+    z-index: 1;
 }
 
 .skill-group h3 {
@@ -265,6 +374,16 @@ section {
 
 .contact-card h2 {
     color: #171717;
+}
+
+.about-card > h2,
+.what-i-do > h2,
+.projects-card > h2,
+.fact-card > h2,
+.sense-card h2 {
+    display: table;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .contact-links {
@@ -392,24 +511,97 @@ section {
     }
 }
 
-.about-card::before {
-    width: 180px;
-    height: 180px;
-    border: 0;
-    border-radius: 0;
-    background-image: repeating-radial-gradient(circle at 100% 0, transparent 0 18px, #f4b942 19px 20px), repeating-conic-gradient(from 90deg at 100% 0, transparent 0 14deg, #f4b942 15deg 16deg);
-}
-
 .about-card h2,
 .about-card p,
-.about-card img {
+.about-gallery {
     position: relative;
     z-index: 1;
 }
 
-.about-card img {
-    border-color: #f4b942;
+.about-gallery {
+    display: flex;
+    flex-direction: column;
+    width: min(100%, 320px);
+    aspect-ratio: 3 / 2;
+    margin: 12px auto 20px;
+    overflow: hidden;
+    background: #111827;
+    border: 5px solid #f4b942;
     box-shadow: 6px 6px 0 #d72f2f;
+    transform: rotate(1deg);
+}
+
+.gallery-image-button {
+    display: block;
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #111827;
+    border: 0;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.gallery-image-button:hover,
+.gallery-image-button:focus-visible {
+    background: #111827;
+    transform: none;
+}
+
+.about-gallery-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border: 0;
+    box-shadow: none;
+    object-fit: cover;
+    transform: none;
+    transition: opacity 160ms ease-out;
+}
+
+.gallery-image-button:hover .about-gallery-image,
+.gallery-image-button:focus-visible .about-gallery-image {
+    filter: brightness(1.12);
+}
+
+.gallery-image-button:focus-visible {
+    outline: 3px solid #fffdf5;
+    outline-offset: -4px;
+    position: relative;
+    z-index: 1;
+}
+
+.gallery-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 6px;
+    background: #111827;
+    border-top: 3px solid #d72f2f;
+}
+
+.gallery-control {
+    padding: 6px 9px;
+    color: #fffdf5;
+    background: #173a72;
+    border-color: #d72f2f;
+    box-shadow: 2px 2px 0 #d72f2f;
+    font-size: 0.72rem;
+}
+
+.gallery-control:hover,
+.gallery-control:focus-visible {
+    color: #171717;
+    background: #f4b942;
+}
+
+.gallery-counter {
+    color: #fffdf5;
+    font: 700 0.75rem "Courier New", monospace;
 }
 
 .what-i-do {
@@ -424,7 +616,7 @@ section {
 
 .what-do-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px;
 }
 
@@ -446,6 +638,7 @@ section {
     border-radius: 50%;
     box-shadow: 0 0 8px #d72f2f;
     content: "";
+    z-index: 2;
 }
 
 .hud-card h3,
@@ -480,6 +673,7 @@ section {
 }
 
 .action-bar {
+    position: relative;
     display: flex;
     grid-area: actions;
     flex-wrap: wrap;
@@ -493,14 +687,53 @@ section {
 
 section::before {
     position: absolute;
-    top: 12px;
-    right: 16px;
-    width: 42px;
-    height: 42px;
-    border: 4px solid #d72f2f;
-    border-radius: 50%;
+    z-index: 0;
+    top: 0;
+    right: 0;
+    width: 112px;
+    height: 112px;
     content: "";
-    opacity: 0.8;
+    opacity: 0.13;
+    pointer-events: none;
+    background-image:
+        repeating-radial-gradient(circle at 100% 0, transparent 0 15px, rgba(255, 253, 245, 0.9) 16px 17px),
+        repeating-conic-gradient(from 90deg at 100% 0, transparent 0 13deg, rgba(215, 47, 47, 0.9) 14deg 15deg);
+}
+
+.fact-card::before {
+    inset: 0;
+    width: auto;
+    height: auto;
+    background-size: 180px 180px;
+    background-repeat: repeat;
+}
+
+section:not(.intro-card) > * {
+    position: relative;
+    z-index: 1;
+}
+
+.project-card::after,
+.skill-group::after,
+.hud-card::after,
+.action-bar::before {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    right: 0;
+    width: 76px;
+    height: 76px;
+    content: "";
+    opacity: 0.11;
+    pointer-events: none;
+    background-image:
+        repeating-radial-gradient(circle at 100% 0, transparent 0 11px, rgba(255, 253, 245, 0.9) 12px 13px),
+        repeating-conic-gradient(from 90deg at 100% 0, transparent 0 13deg, rgba(215, 47, 47, 0.9) 14deg 15deg);
+}
+
+.action-bar > * {
+    position: relative;
+    z-index: 1;
 }
 
 h1,
@@ -638,6 +871,41 @@ button:focus-visible {
     100% {
         opacity: 1;
         transform: scale(1) rotate(0);
+    }
+}
+
+@media (min-width: 901px) {
+    .about-card {
+        display: flex;
+        flex-direction: column;
+        align-self: stretch;
+    }
+
+    .about-gallery {
+        flex: 1;
+        min-height: 200px;
+        aspect-ratio: auto;
+    }
+
+    .what-i-do {
+        display: flex;
+        flex-direction: column;
+        align-self: stretch;
+    }
+
+    .what-do-grid {
+        flex: 1;
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+    }
+
+    .hud-card {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hud-card p {
+        flex: 1;
+        height: auto;
     }
 }
 
