@@ -9,12 +9,12 @@ const galleryCounter = document.querySelector("#gallery-counter");
 const galleryPrevious = document.querySelector("#gallery-previous");
 const galleryNext = document.querySelector("#gallery-next");
 const galleryPhotos = [
-    { source: "New%20folder/MyImage1.JPG", alt: "Personal photo 1" },
-    { source: "New%20folder/SpidermanImage1.jpg", alt: "Spider-Man photo 1" },
-    { source: "New%20folder/MyImage2.JPG", alt: "Personal photo 2" },
-    { source: "New%20folder/SpidermanImage2.jpg", alt: "Spider-Man photo 2" },
-    { source: "New%20folder/MyImage3.JPG", alt: "Personal photo 3" },
-    { source: "New%20folder/SpidermanImage3.jpg", alt: "Spider-Man photo 3" }
+    { source: "images/MyImage1.JPG", alt: "Personal photo 1" },
+    { source: "images/SpidermanImage1.jpg", alt: "Spider-Man photo 1" },
+    { source: "images/MyImage2.JPG", alt: "Personal photo 2" },
+    { source: "images/SpidermanImage2.jpg", alt: "Spider-Man photo 2" },
+    { source: "images/MyImage3.JPG", alt: "Personal photo 3" },
+    { source: "images/SpidermanImage3.jpg", alt: "Spider-Man photo 3" }
 ];
 const funFacts = [
     "I initially wanted to study Psychology to become a therapist.",
